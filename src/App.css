@@ -1,38 +1,409 @@
-.App {
+/* Dashboard Layout */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Roboto:wght@400;500&display=swap');
+
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* General Body Font */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4; /* Light background color */
+}
+
+/* Container for the dashboard */
+.dashboard-container {
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center;     /* Vertically center the content */
+  height: 100vh;           /* Full viewport height */
+  text-align: center;      /* Center the text inside the elements */
+}
+
+/* Dashboard content */
+.dashboard-content {
+  margin: 20px;
+  font-family: 'Roboto', sans-serif; /* Apply Roboto font for content */
+}
+
+/* Heading styles */
+h2, h3 {
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font for headings */
+  font-weight: 600;
+  color: #2c3e50;  /* Dark color for the heading */
+  /* margin-bottom: 10px; */
+}
+.main-content h3{
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Button Styles */
+button {
+  /* padding: 10px 20px; */
+  border: none;
+  background-color: #2c3e50;
+  color: white;
+  cursor: pointer;
+  border-radius: 25px; /* Rounded button */
+  font-family: 'Poppins', sans-serif; /* Poppins font for buttons */
+  font-size: 16px;
+  font-weight: 600;
+  /* margin-top: 20px; */
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  background-color: #34495e;
+}
+
+/* Form Inputs */
+input {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 250px;
+  font-family: 'Roboto', sans-serif; /* Use Roboto for input fields */
+}
+
+input:focus {
+  border-color: #2c3e50;
+}
+
+/* Visiting Card Section */
+.visiting-card {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif; /* Roboto font for the visiting card */
+}
+
+.visiting-card h4 {
+  font-family: 'Poppins', sans-serif; /* Heading on visiting card */
+  font-size: 24px;
+  margin: 0;
+}
+
+.visiting-card p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: white;
+  color: black;
+  padding: 7px;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+/* Sidebar Styles */
+.sidebar {
+  width: 250px; /* Set a fixed width for the sidebar */
+  height: 100vh; /* Full screen height */
+  position: fixed; /* Position it on the left side */
+  top: 0;
+  left: 0;
+  background-color: #f0f1f3; /* Sidebar background color */
+  color: rgb(23, 22, 22);
+  transition: transform 0.3s ease-in-out; /* Smooth transition for sidebar hide/show */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Media query to hide sidebar on small screens */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%); /* Move sidebar off-screen when width is less than 768px */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Add a button for toggling sidebar visibility if needed */
+.sidebar-toggle {
+  display: none; /* Hide the toggle button by default */
+}
+
+/* Optionally, display the toggle button only on smaller screens */
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    display: block; /* Show the toggle button on smaller screens */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #e9eef4;
+    color: rgb(24, 19, 19);
+    padding: 10px;
+    cursor: pointer;
+  }
+}
+
+.sidebar ul li {
+  padding: 12px;
+  margin: 7px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.sidebar ul li:hover {
+  color: #b1c4d6;
+}
+
+.sidebar .logout {
+  color: #e74c3c;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 100px;
+  /* padding: 20px; */
+  margin-top: 40px;
+  width: 100%;
+}
+
+/* Carousel */
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: 20px 0; */
+  width: 100%;
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.carousel-image {
+  width: 600px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 2rem;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  margin: 20px auto;
+}
+
+input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Visiting Card */
+.visiting-card {
+  width: 350px;
+  /* margin: 20px auto; */
+  /* padding: 15px; */
+  border: 1px solid #ddd;
+  text-align: center;
+  border-radius: 8px;
+  position: relative;
+}
+
+.card-template {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.card-details {
+  /* margin-top: 10px; */
+}
+/* Style for "Create Your Own Template" Button */
+.create-template-button {
+  background-color: white;         /* White background */
+  color: #111213;                  /* Blue text color */
+  border: 2px solid #ebf0f3;       /* Blue border */
+  padding: 10px 20px;              /* Padding for button */
+  font-size: 16px;                 /* Font size */
+  font-weight: bold;               /* Bold font */
+  border-radius: 30px;             /* Rounded corners */
+  display: flex;                   /* Align icon and text horizontally */
+  align-items: center;             /* Vertically center text and icon */
+  gap: 8px;                        /* Space between icon and text */
+  cursor: pointer;                /* Pointer cursor on hover */
+  transition: all 0.3s ease; 
+  justify-content: center;
+  align-items: center;      /* Smooth transition for hover effect */
+}
+
+.create-template-button:hover {
+  background-color: #e6edf2;       /* Blue background on hover */
+  color: rgb(10, 10, 10);                    /* White text on hover */
+  border-color: #f0f6fa;           /* Maintain blue border on hover */
+}
+
+.create-template-button .plus-sign {
+  font-size: 20px;                 /* Bigger plus sign */
+  font-weight: bold;               /* Bold plus sign */
+}
+
+/* Save Message */
+.saved-message {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+/* Social Media Share Popup */
+.social-media-options {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.social-media-options button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.social-media-options button:hover {
+  background-color: #0056b3;
+}
+/* Center the form elements */
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
+}
+
+.form input {
+  margin: 10px;
+  padding: 10px;
+  width: 80%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Template selection */
+.template-selection {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.template-option {
+  display: inline-block;
+  margin: 10px;
+}
+
+.template-img {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+}
+
+/* Visiting Card */
+.visiting-card {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: column;
+}
+
+.card-template {
+  width: 100%;
+  max-width: 400px;
+}
+
+.card-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 10
+}
+/* Add these styles for buttons and image layout */
+.download-options {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+/* Basic Navbar Styles */
+.navbar {
+  background-color: #333;
   color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar ul {
+  display: flex;
+  list-style: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar ul li {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.navbar ul li.logout {
+  color: red;
+}
+
+.navbar ul li:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+.main-content {
+  padding: 20px;
+}
+
+/* Button Styles */
+.create-template-button, .download-options button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.create-template-button:hover, .download-options button:hover {
+  background-color: #45a049;
 }
